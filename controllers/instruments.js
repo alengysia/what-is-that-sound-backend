@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
-const Instrument = require('../models/instrument');
+const Instruments = require('../models/instrument');
 
 
 
@@ -9,7 +9,7 @@ const Instrument = require('../models/instrument');
 //Index
 router.get('/', async (req, res) => {
     try {
-        res.json(await Instrument.find({}));
+        res.json(await Instruments.find({}));
     } catch (error) {
         res.status(400).json(error)
     }

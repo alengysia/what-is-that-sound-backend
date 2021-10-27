@@ -31,7 +31,7 @@ app.get("/", (req, res) => {
   });
 
 
-app.use("/instruments", instrumentsController)
+app.use("/instrument", instrumentsController)
 
 
 
