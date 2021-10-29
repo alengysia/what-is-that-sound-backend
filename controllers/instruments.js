@@ -15,6 +15,17 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.put("/:id", async (req, res) => {
+    try {
+        res.json(
+            await Instruments.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        );
+    } catch (error) {
+        res.status(400).json(error);
+    }
+});
+
+
 
 //Create
 router.post('/', async (req, res) =>{
