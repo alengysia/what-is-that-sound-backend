@@ -15,6 +15,7 @@ router.get('/', async (req, res) => {
     }
 });
 
+//Update
 router.put("/:id", async (req, res) => {
     try {
         res.json(
@@ -30,7 +31,7 @@ router.put("/:id", async (req, res) => {
 //Create
 router.post('/', async (req, res) =>{
     try {
-        res.json(await Instrument.create(req.body));
+        res.json(await Instruments.create(req.body));
     } catch (error) {
         res.status(400).json(error)
     }

@@ -9,7 +9,7 @@ const instrumentSchema = new Schema ({
     instTradition: {type: Boolean},
     instAbout: {type: String, required: true},
     instVid: {type: String, required: true},
-    uid:{type: Schema.Types.ObjectId, ref: "User"}
+    uid:{type: String},
 });
 
 const Instruments = mongoose.model("Instruments", instrumentSchema)
