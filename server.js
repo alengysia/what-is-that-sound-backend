@@ -25,6 +25,11 @@ app.use(logger('dev'))
 app.use(express.json());
 app.use(cors())
 
+app.use(function(req, res, next) {
+  const token = req.get('Authorization')
+  next();
+})
+
 
 app.get("/", (req, res) => {
     res.send("hello world");
