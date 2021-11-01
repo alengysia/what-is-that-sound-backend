@@ -70,7 +70,7 @@ app.get('/', (req, res) => {
   });
 
 
-app.use('/instruments', isAuthenticated, instrumentsController);
+app.use('/instruments', instrumentsController);
 
 
 
