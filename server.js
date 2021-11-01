@@ -52,17 +52,16 @@ admin.initializeApp({
 app.use(async function(req, res, next) {
   const token = req.get('Authorization')
   if(token){
-    const authUser = await admin.auth().verifyIdToken(token.replace('Bearer', ''))
+    const authUser = await admin.auth().verifyIdToken(token.replace('Bearer ', ''))
     req.user = authUser
   }
   next();
 })
 
 function isAuthenticated(req, res, next){
-  if(req.user) {return next();
-  } else {
-    res.status(401).json({message: 'unauthorized'})
-  }
+  if(req.user) return next();
+  else res.status(401).json({message: 'unauthorized'})
+  
 }
 
 
@@ -71,7 +70,7 @@ app.get('/', (req, res) => {
   });
 
 
-app.use('/instruments', instrumentsController);
+app.use('/instruments', isAuthenticated, instrumentsController);
 
 
 
