@@ -14,7 +14,15 @@ router.get('/', async (req, res) => {
     }
 });
 
-
+router.delete('/:id', async (req, res) => {
+    try {
+      // send all people
+      res.json(await Instruments.findByIdAndDelete(req.params.id));
+    } catch (error) {
+      //send error
+      res.status(400).json(error);
+    }
+  });
 
 //Update
 router.put("/:id", async (req, res) => {
