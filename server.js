@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 const cors = require('cors');
 const instrumentsController = require('./controllers/instruments');
+const landingController = require('./controllers/landing')
 const admin = require('firebase-admin');
 
 
@@ -71,6 +72,7 @@ app.get('/', (req, res) => {
 
 
 app.use('/instruments', instrumentsController);
+app.use('/landing', landingController);
 
 
 
