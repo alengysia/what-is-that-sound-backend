@@ -72,7 +72,7 @@ app.get('/', (req, res) => {
 
 
 app.use('/instruments', instrumentsController);
-app.use('/landing', landingController);
+app.use('/landing', isAuthenticated, landingController);
 
 
 

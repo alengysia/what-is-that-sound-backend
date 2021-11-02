@@ -3,7 +3,7 @@ const router = express.Router();
 const Instruments = require('../models/instrument');
 
 
-
+// Index
 router.get('/', async (req, res) => {
     try{
         res.json(await Instruments.find({managedBy: req.user.uid}));
@@ -13,6 +13,27 @@ router.get('/', async (req, res) => {
 });
 
 
+router.delete('/:id', async (req, res) => {
+    try {
+      // send all people
+      res.json(await Instruments.findByIdAndDelete(req.params.id));
+    } catch (error) {
+      //send error
+      res.status(400).json(error);
+    }
+  });
+
+
+
+router.get("/:id", async (req, res) => {
+    try {
+        // send all people
+        res.json(await Instruments.findById(req.params.id));
+      } catch (error) {
+        //send error
+        res.status(400).json(error);
+      }
+    });
 
 
 module.exports = router
