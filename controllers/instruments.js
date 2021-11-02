@@ -14,6 +14,14 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.get('/landing', async (req, res) => {
+    try{
+        res.json(await Intruments.find({uid: req.user.uid}));
+    } catch (error) {
+        res.status(401).json({message: 'Please login to see contacts'});
+    }
+});
+
 //Update
 router.put("/:id", async (req, res) => {
     try {
