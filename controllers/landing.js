@@ -4,7 +4,7 @@ const Instruments = require('../models/instrument');
 
 
 
-router.get('/landing', async (req, res) => {
+router.get('/', async (req, res) => {
     try{
         res.json(await Instruments.find({managedBy: req.user.uid}));
     } catch (error) {
