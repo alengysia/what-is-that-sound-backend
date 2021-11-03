@@ -15,6 +15,7 @@ router.get('/', async (req, res) => {
 });
 
 router.delete('/:id', async (req, res) => {
+    console.log(req.params.id)
     try {
       
       res.json(await Instruments.findByIdAndDelete(req.params.id));
